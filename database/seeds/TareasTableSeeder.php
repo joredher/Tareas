@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Tarea;
 
-class DatabaseSeeder extends Seeder
+class TareasTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(TareasTableSeeder::class);
+        factory(Tarea::class, 35)->create();
     }
 }

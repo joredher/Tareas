@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
+
+Route::resource('tareas','TareaController',['except' => 'show' , 'create', 'edit']);
