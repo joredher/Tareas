@@ -14,7 +14,7 @@ class TareaController extends Controller
      */
     public function index()
     {
-        $tareas = Tarea::get();
+        $tareas = Tarea::orderBy('id','DESC')->get();
 
         return $tareas;
     }
@@ -79,7 +79,13 @@ class TareaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $this->validate($request, [
+            'item' => 'required',
+        ]);
+
+       Tarea::find($id)->update($request->all());
+       
+       return;
     }
 
     /**

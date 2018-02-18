@@ -9,6 +9,7 @@ new Vue({
             title:'',
         },
         item:{},
+        itemEdicion: {},
         errors:[]
     },
     methods:{
@@ -17,6 +18,24 @@ new Vue({
             axios.get(urlItems).then(response => {
                 this.items = response.data
             });
+        },
+
+        editItem: function(item){
+            this.itemEdicion.id = item.id;
+            this.itemEdicion.item = item.item;
+        },
+
+        updateItem: function(id) {
+          var url = 'tareas/' + id;
+          axios.put(url, this.itemEdicion).then(response => {
+            this.getItems();
+            this.itemEdicion = {};
+            this.errors = [];
+            $('#create').modal('hide');
+            toastr.success('Tarea actualizada con éxito');
+          }).catch(error => {
+            this.errors = 'Corrija para poder editar con éxito'
+          });
         },
 
         deleteItem: function(item){
@@ -44,6 +63,11 @@ new Vue({
             this.item ={
                 id:'',
                 newItem:'',
+            };
+
+            this.itemEdicion = {
+                id:'',
+                item:'',
             }
         }
     },
@@ -57,6 +81,7 @@ new Vue({
         });
         $("#create").on("show.bs.modal", function () {
             app.modal.title = (app.item.id != ''?'Edición de ':'Nueva ') + 'Tarea';
+            app.modal.title = (app.itemEdicion.id != ''?'Edición de ':'Nueva ') + 'Tarea';
         });
     }
 });

@@ -25,7 +25,7 @@
                     <td width="10px"><span v-text="index + 1"></span></td>
                     <td><span v-text="item.item"></span></td>
                     <td width="10px">
-                        <a href="#" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt text-white"></i></a>
+                        <a href="#" class="btn btn-warning btn-sm"  @click="editItem(item)" data-toggle="modal" data-target="#create"><i class="fas fa-pencil-alt text-white"></i></a>
                     </td>
                     <td width="10px">
                         <a href="#" class="btn btn-danger btn-sm" @click.prevent="deleteItem(item, index)"><i class="fas fa-trash-alt"></i></a>
@@ -34,6 +34,7 @@
                 </tbody>
             </table>
             @include('create')
+            @include('edit')
         </div>
         <div class="col-sm-5">
             {{--<pre>--}}
