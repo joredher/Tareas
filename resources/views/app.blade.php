@@ -7,6 +7,30 @@
 
         <title>Laravel/Vue</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <style type="text/css">
+
+            .btn-primary:not(:disabled):not(.disabled):active:focus,
+            .btn-warning:not(:disabled):not(.disabled):active:focus,
+            .btn-danger:not(:disabled):not(.disabled):active:focus{
+                box-shadow: none;
+            }
+
+            .form-control:focus{
+                outline: none;
+                background-color: #fff;
+                border-color: #CED4DA;
+                box-shadow: none;
+            }
+
+            .btn:focus{
+                outline: none;
+                box-shadow: none;
+            }
+
+            .btn{
+                cursor: pointer;
+            }
+        </style>
         <!-- Fonts -->
         {{--<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">--}}
         {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">--}}

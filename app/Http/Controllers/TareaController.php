@@ -12,11 +12,21 @@ class TareaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tareas = Tarea::orderBy('id','DESC')->get();
+        $tareas = Tarea::orderBy('id','asc')->paginate(4);
 
-        return $tareas;
+        return [
+            'pagination' =>[
+                'total'         => $tareas->total(),
+                'current_page'  => $tareas->currentPage(),
+                'per_page'      => $tareas->perPage(),
+                'last_page'     => $tareas->lastPage(),
+                'from'          => $tareas->firstItem(),
+                'to'            => $tareas->lastPage(),
+            ],
+            'tareas' => $tareas
+        ];
     }
 
 //    /**
