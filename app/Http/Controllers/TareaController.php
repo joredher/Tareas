@@ -23,7 +23,7 @@ class TareaController extends Controller
                 'per_page'      => $tareas->perPage(),
                 'last_page'     => $tareas->lastPage(),
                 'from'          => $tareas->firstItem(),
-                'to'            => $tareas->lastPage(),
+                'to'            => $tareas->lastItem(),
             ],
             'tareas' => $tareas
         ];
