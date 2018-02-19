@@ -11,9 +11,24 @@
 
             .btn-primary:not(:disabled):not(.disabled):active:focus,
             .btn-warning:not(:disabled):not(.disabled):active:focus,
-            .btn-danger:not(:disabled):not(.disabled):active:focus{
+            .btn-danger:not(:disabled):not(.disabled):active:focus,
+            .btn-outline-info:not(:disabled):not(.disabled):active:focus{
                 box-shadow: none;
             }
+
+            .page-item.active .page-link,
+            .page-item.active span{
+                background: #117a8b;
+                border-color: #117a8b;
+                color: #fff !important;
+            }
+
+            .page-link:focus{
+                outline: none;
+                box-shadow: none;
+            }
+
+
 
             .form-control:focus{
                 outline: none;
